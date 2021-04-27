@@ -55,7 +55,7 @@ export const globalCss = createGlobalCss({
     all: 'unset',
   },
   // normalize behavior on all elements
-  '*, *::before, *::after': {
+  '*, *::before, *::after, button, input, select, textarea, a, area': {
     margin: 0,
     border: 0,
     padding: 0,
@@ -65,7 +65,7 @@ export const globalCss = createGlobalCss({
     textDecoration: 'inherit',
     textAlign: 'inherit',
     lineHeight: 'inherit',
-    overflowWrap: 'inherit',
+    wordBreak: 'inherit',
     color: 'inherit',
     background: 'transparent',
     WebkitTapHighlightColor: 'transparent',
@@ -74,7 +74,8 @@ export const globalCss = createGlobalCss({
   body: {
     color: '$highContrast',
     fontFamily: 'system-ui, Helvetica Neue, sans-serif',
-    overflowWrap: 'anywhere',
+    // use word-break instead of "overflow-wrap: anywhere" because of Safari support
+    wordBreak: 'break-word',
     WebkitFontSmoothing: 'antialiased',
     MozOsxFontSmoothing: 'grayscale',
     fontSize: '16px',
